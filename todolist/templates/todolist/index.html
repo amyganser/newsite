@@ -4,7 +4,7 @@
 <p>{{ x.task_name }} - {{ x.pub_date|date:"D d M Y" }} </p>
 <p>{{ x.about_task }}</p>
 
-<button class="button_{% if not x.complete %}not{% endif %}complete"><a href="{% url toggle_complete 'x.complete',  'x.id' %}"/>
+<button class="button_{% if not x.complete %}not{% endif %}complete"><a href="{% url 'toggle_completed' x.complete x.id %}"/>
 {% if x.complete %}Not Completed{% else %}Completed{% endif %}</button>
 
 {% endfor %}
@@ -16,8 +16,7 @@
 <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script language="javascript">
-      
-      var COMPLETE_PRE_ID = "{% url toggle_complete 'x.complete',  'x.id' %}"
-      COMPLETE_PRE_ID = COMPLETE_PRE_ID.substring(0, COMPLETE_PRE_ID.length - "999999999/".length);
+
+
    </script>
    <script type='text/javascript' src="/complete.js"></script>
