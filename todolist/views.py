@@ -1,5 +1,5 @@
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpRequest
 from todolist.models import Task
 from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404, render
@@ -29,8 +29,9 @@ def index(request):
 #    return HttpResponse("Deleted!")
 
 def toggle_completed(request, complete, id):
-	completed_task = Task.objects.filter(['complete', 'id'])
+	completed_task = Task.objects.get(['complete', 'id'])
 	completed_task.complete = not completed_task.complete
 	completed_task.save()  #Commit the change to the database
-	return HttpResponse("Got it!")
-	#return  render_to_response('todolist/index.html', {'complete': 'complete'})
+	return HttpResponse("Change successful!")
+	
+	#return  render_to_response('todolist/index.html', {'complete': complete, 'id': id})
