@@ -7,5 +7,6 @@ from todolist.views import toggle_completed
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-	url(r'^task_(?P<complete>/d)/(?P<id>\d)/$', views.toggle_completed, name='toggle_completed'),
+	url(r'^(?P<complete>[-\w]+)/(?P<id>[-\w\ ]+)/$', views.toggle_completed, name='toggle_completed'),
+	
   ]
