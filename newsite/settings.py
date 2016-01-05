@@ -123,3 +123,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/users/keith/envs/newsite/todolist/static/todolist'
+SITE_ID=1
